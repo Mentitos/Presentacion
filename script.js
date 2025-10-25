@@ -60,7 +60,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Lógica de Animación ---
     const presentationLines = [
-        { text: '[ACADEMIC]: Estudiando Lic. en Economía Industrial', delayAfter: 300 }, // TEXTO CAMBIADO
+        { text: '> Cargando perfil...', delayAfter: 500 },
+        { text: 'MATIAS GABRIEL TELLO', class: 'title-line', delayAfter: 800 },
+        { text: '[QUERY]: Buscando credenciales...', class: 'query-line', delayAfter: 500 },
+        { text: '[STATUS]: Técnico Informático (Graduado)', delayAfter: 300 },
+        { text: '[ESTUDIANDO]: Lic. en Economía Industrial', delayAfter: 300 },
         { text: '[HOBBY]: ', noBreak: true },
         { text: '<span class="glitch" data-text="PROGRAMAR POR DIVERSION">PROGRAMAR POR DIVERSION</span>', isHTML: true, delayAfter: 800 },
         { text: '[PROYECTO_ACTUAL]: \'Finanzas Libre\' (App Móvil)', delayAfter: 300 },
