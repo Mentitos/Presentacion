@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789*&^%$#@!';
         const noiseInterval = setInterval(() => {
             let content = '';
-            for (let i = 0; i < 5000; i++) {
+            for (let i = 0; i < 20000; i++) {
                 content += chars[Math.floor(Math.random() * chars.length)];
             }
             backgroundNoise.textContent = content;
