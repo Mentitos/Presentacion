@@ -7,9 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let keySoundOscillator;
     let robotInterval;
     let crazyIntervals = [];
-    const TYPING_SPEED = 15; // ¡Más rápido!
-
-    // --- Configuración de Audio ---
+    const TYPING_SPEED = 10; 
     function setupAudio() {
         if (audioCtx) return;
         try {
@@ -58,7 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
         boom.stop(audioCtx.currentTime + 1);
     }
 
-    // --- Lógica de Animación ---
     const presentationLines = [
         { text: '> Cargando perfil...', delayAfter: 500 },
         { text: 'MATIAS GABRIEL TELLO', class: 'title-line', delayAfter: 800 },
@@ -70,6 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { text: '[PROYECTO_ACTUAL]: \'Finanzas Libre\' (App Móvil)', delayAfter: 300 },
         { text: '> <a href="https://github.com/Mentitos/finanzaslibre" target="_blank">[Ver GitHub]</a> > <a href="https://drive.google.com/drive/u/0/folders/1B1raOcchcyAkt_Jv80F6SJl3J1mk8eJC?hl=es" target="_blank">[Descargar APK]</a>', class: 'link-line', isHTML: true, delayAfter: 300 },
         { text: '[PROYECTO_WEB]: <a href="https://mentitos.github.io/materiasungsporcentaje/" target="_blank">Calculadora Progreso UNGS</a>', isHTML: true, delayAfter: 300 },
+        { text: '[PROYECTO_SILLY]: <a href="https://mentitos.github.io/idle/" target="_blank">Idle de desarrollo (Dev Empire)</a>', isHTML: true, delayAfter: 300 },
         { text: '[??]: <span class="loco">¡Fanático de la ayuda de las Clankers!</span><span class="dancing-robot"></span>', isHTML: true, delayAfter: 500, id: 'clankers-line' },
     ];
 
@@ -96,7 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
         cursor.style.display = 'none';
     }
 
-    // --- MODO LOCO ---
     function startCrazyMode() {
         stopCrazyMode();
         const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789*&^%$#@!';
@@ -110,13 +107,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const effectsInterval = setInterval(() => {
             const effect = Math.random();
-            if (effect < 0.1) { // 10% de probabilidad de temblor
+            if (effect < 0.1) { 
                 document.body.classList.add('crazy-shake');
                 setTimeout(() => document.body.classList.remove('crazy-shake'), 200);
-            } else if (effect < 0.3) { // 20% de probabilidad de símbolo giratorio
+            } else if (effect < 0.3) { 
                 createSpinningSymbol();
             }
-        }, 200); // Intervalo más rápido para más caos
+        }, 200); 
         crazyIntervals.push(noiseInterval, effectsInterval);
     }
 
@@ -132,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.appendChild(symbol);
         setTimeout(() => {
             symbol.remove();
-        }, 1500); // Coincide con la duración de la animación
+        }, 1500); 
     }
 
     function stopCrazyMode() {
