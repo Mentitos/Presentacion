@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let keySoundOscillator;
     let robotInterval;
     let crazyIntervals = [];
-    const TYPING_SPEED = 10; 
+    const TYPING_SPEED = 10;
     function setupAudio() {
         if (audioCtx) return;
         try {
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function playKeySound() {
         if (!audioCtx) return;
-        if (keySoundOscillator) { try { keySoundOscillator.stop(); } catch (e) {} }
+        if (keySoundOscillator) { try { keySoundOscillator.stop(); } catch (e) { } }
         keySoundOscillator = audioCtx.createOscillator();
         const gainNode = audioCtx.createGain();
         keySoundOscillator.type = 'square';
@@ -64,10 +64,21 @@ document.addEventListener('DOMContentLoaded', () => {
         { text: '[ESTUDIANDO]: Lic. en Economía Industrial', delayAfter: 300 },
         { text: '[HOBBY]: ', delayAfter: 0 },
         { text: '<span class="glitch" data-text="PROGRAMAR POR DIVERSION">PROGRAMAR POR DIVERSION</span>', isHTML: true, noBreak: true, delayAfter: 800 },
-        { text: '[PROYECTO_ACTUAL]: \'Finanzas Libre\' (App Móvil)', delayAfter: 300 },
-        { text: '> <a href="https://github.com/Mentitos/finanzaslibre" target="_blank">[Ver GitHub]</a> > <a href="https://drive.google.com/drive/u/0/folders/1B1raOcchcyAkt_Jv80F6SJl3J1mk8eJC?hl=es" target="_blank">[Descargar APK]</a>', class: 'link-line', isHTML: true, delayAfter: 300 },
-        { text: '[PROYECTO_WEB]: <a href="https://mentitos.github.io/materiasungsporcentaje/" target="_blank">Calculadora Progreso UNGS</a>', isHTML: true, delayAfter: 300 },
-        { text: '[PROYECTO_SILLY]: <a href="https://mentitos.github.io/idle/" target="_blank">Idle de desarrollo (Dev Empire)</a>', isHTML: true, delayAfter: 300 },
+        { text: '[PROYECTOS_OPEN_SOURCE]:', delayAfter: 300 },
+        { text: '> <a href="https://mentitos.github.io/finanzaslibre-pagina/" target="_blank">Finanzas Libre</a>: App móvil para la gestión integral de finanzas personales.', class: 'link-line', isHTML: true, delayAfter: 600 },
+        { text: '> <a href="https://mentitos.github.io/horarios-pagina/" target="_blank">Horarios UNGS</a>: Gestión de horarios de cursada. Nació de un proyecto en conjunto como un Excel, luego pasó a ser Web y terminó en Android.', class: 'link-line', isHTML: true, delayAfter: 600 },
+        { text: '[PROYECTOS_WEB]:', delayAfter: 300 },
+        { text: '> <a href="https://mentitos.github.io/GabrielaS/" target="_blank">GabrielaS</a>: Pagina web de Gabriela, una emprendedora dedicada a la venta de aceite CBD.', class: 'link-line', isHTML: true, delayAfter: 400 },
+        { text: '> <a href="https://mentitos.github.io/Ferrovias/" target="_blank">Ferrovias</a>: Una mejor pagina para ver los hoarios del Belgrano Norte "El Rojito".', class: 'link-line', isHTML: true, delayAfter: 400 },
+        { text: '> <a href="https://mentitos.github.io/chillimicalamejor-fanpage/" target="_blank">Fanpage de Chillimica</a>: Página fan de Chillimica.', class: 'link-line', isHTML: true, delayAfter: 400 },
+        { text: '> <a href="https://mentitos.github.io/distrimas/" target="_blank">Distrimas</a>: Página web para una distribuidora de harinas y demas.', class: 'link-line', isHTML: true, delayAfter: 400 },
+        { text: '> <a href="https://mentitos.github.io/QRgenerador/" target="_blank">QR Generador</a>: Generador de códigos QR simple.', class: 'link-line', isHTML: true, delayAfter: 400 },
+        { text: '> <a href="https://mentitos.github.io/Reparaciones.Francisconi/" target="_blank">Reparaciones Francisconi</a>: Página web para negocio de reparación de electrodomesticos.', class: 'link-line', isHTML: true, delayAfter: 400 },
+        { text: '> <a href="https://mentitos.github.io/los-dos-pibes/" target="_blank">Los Dos Pibes</a>: Pagina para un corralon "Los dos pibes".', class: 'link-line', isHTML: true, delayAfter: 400 },
+        { text: '> <a href="https://mentitos.github.io/materiasungsporcentaje/" target="_blank">Calculadora Progreso UNGS</a>: Página web interactiva original para calcular el porcentaje de avance en tu carrera.', class: 'link-line', isHTML: true, delayAfter: 400 },
+        { text: '[PROYECTOS_SILLY]:', delayAfter: 300 },
+        { text: '> <a href="https://mentitos.github.io/idle/" target="_blank">Idle de desarrollo (Dev Empire)</a>: Un juego incremental (idle) en el que puedes armar tu propio imperio de desarrollo de software.', class: 'link-line', isHTML: true, delayAfter: 600 },
+        { text: '> <a href="https://github.com/Mentitos/Game-Of-Life-In-Your-Terminal" target="_blank">Game Of Life In Your Terminal</a>: El clásico juego de la vida de Conway, pero en tu consola.', class: 'link-line', isHTML: true, delayAfter: 600 },
         { text: '[??]: <span class="loco">¡Fanático de la ayuda de las Clankers!</span><span class="dancing-robot"></span>', isHTML: true, delayAfter: 500, id: 'clankers-line' },
     ];
 
@@ -82,12 +93,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const content = document.createElement('span');
             content.innerHTML = line.text;
             p.insertBefore(content, cursor);
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         } else {
             const text = line.text || '';
             for (const char of text) {
                 playKeySound();
                 const textNode = document.createTextNode(char);
                 p.insertBefore(textNode, cursor);
+                window.scrollTo(0, document.body.scrollHeight);
                 await sleep(TYPING_SPEED);
             }
         }
@@ -107,13 +120,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const effectsInterval = setInterval(() => {
             const effect = Math.random();
-            if (effect < 0.1) { 
+            if (effect < 0.1) {
                 document.body.classList.add('crazy-shake');
                 setTimeout(() => document.body.classList.remove('crazy-shake'), 200);
-            } else if (effect < 0.3) { 
+            } else if (effect < 0.3) {
                 createSpinningSymbol();
             }
-        }, 200); 
+        }, 200);
         crazyIntervals.push(noiseInterval, effectsInterval);
     }
 
@@ -129,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.appendChild(symbol);
         setTimeout(() => {
             symbol.remove();
-        }, 1500); 
+        }, 1500);
     }
 
     function stopCrazyMode() {
