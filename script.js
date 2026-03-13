@@ -1,4 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const modernApp = document.getElementById('modern-app');
+    const terminalOverlay = document.getElementById('terminal-overlay');
+    const btnOpenTerminal = document.getElementById('btn-terminal-mode');
+    const btnCloseTerminal = document.getElementById('btn-close-terminal');
+
+    btnOpenTerminal.addEventListener('click', () => {
+        modernApp.style.display = 'none';
+        terminalOverlay.style.display = 'flex';
+        terminal.innerHTML = '';
+        backgroundNoise.textContent = '';
+        rebootButton.style.display = 'none';
+        setupAudio();
+        runPresentation();
+    });
+
+    btnCloseTerminal.addEventListener('click', () => {
+        clearInterval(robotInterval);
+        stopCrazyMode();
+        if (keySoundOscillator) { try { keySoundOscillator.stop(); } catch (e) { } }
+
+        terminalOverlay.style.display = 'none';
+        modernApp.style.display = 'block';
+    });
+
+
     const terminal = document.getElementById('terminal');
     const rebootButton = document.getElementById('reboot-button');
     const backgroundNoise = document.getElementById('background-noise');
@@ -8,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let robotInterval;
     let crazyIntervals = [];
     const TYPING_SPEED = 10;
+
     function setupAudio() {
         if (audioCtx) return;
         try {
@@ -85,6 +111,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
     async function typeLine(p, line) {
+        if (terminalOverlay.style.display === 'none') return;
+
         const cursor = document.createElement('span');
         cursor.className = 'cursor';
         p.appendChild(cursor);
@@ -93,14 +121,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const content = document.createElement('span');
             content.innerHTML = line.text;
             p.insertBefore(content, cursor);
-            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+            terminalOverlay.scrollTo({ top: terminalOverlay.scrollHeight, behavior: 'smooth' });
         } else {
             const text = line.text || '';
             for (const char of text) {
+                if (terminalOverlay.style.display === 'none') break;
                 playKeySound();
                 const textNode = document.createTextNode(char);
                 p.insertBefore(textNode, cursor);
-                window.scrollTo(0, document.body.scrollHeight);
+                terminalOverlay.scrollTo(0, terminalOverlay.scrollHeight);
                 await sleep(TYPING_SPEED);
             }
         }
@@ -111,18 +140,20 @@ document.addEventListener('DOMContentLoaded', () => {
         stopCrazyMode();
         const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789*&^%$#@!';
         const noiseInterval = setInterval(() => {
+            if (terminalOverlay.style.display === 'none') { stopCrazyMode(); return; }
             let content = '';
-            for (let i = 0; i < 20000; i++) {
+            for (let i = 0; i < 15000; i++) {
                 content += chars[Math.floor(Math.random() * chars.length)];
             }
             backgroundNoise.textContent = content;
-        }, 100);
+        }, 150);
 
         const effectsInterval = setInterval(() => {
+            if (terminalOverlay.style.display === 'none') { stopCrazyMode(); return; }
             const effect = Math.random();
             if (effect < 0.1) {
-                document.body.classList.add('crazy-shake');
-                setTimeout(() => document.body.classList.remove('crazy-shake'), 200);
+                terminalOverlay.classList.add('crazy-shake');
+                setTimeout(() => terminalOverlay.classList.remove('crazy-shake'), 200);
             } else if (effect < 0.3) {
                 createSpinningSymbol();
             }
@@ -139,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
         symbol.style.color = colors[Math.floor(Math.random() * colors.length)];
         symbol.style.top = `${Math.random() * 100}vh`;
         symbol.style.left = `${Math.random() * 100}vw`;
-        document.body.appendChild(symbol);
+        terminalOverlay.appendChild(symbol);
         setTimeout(() => {
             symbol.remove();
         }, 1500);
@@ -149,6 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
         crazyIntervals.forEach(clearInterval);
         crazyIntervals = [];
         backgroundNoise.textContent = '';
+        terminalOverlay.classList.remove('crazy-shake');
     }
 
     async function runPresentation() {
@@ -159,6 +191,8 @@ document.addEventListener('DOMContentLoaded', () => {
         let currentP = null;
 
         for (const line of presentationLines) {
+            if (terminalOverlay.style.display === 'none') return;
+
             if (!line.noBreak) {
                 currentP = document.createElement('p');
                 if (line.class) { currentP.className = line.class; }
@@ -179,14 +213,15 @@ document.addEventListener('DOMContentLoaded', () => {
             if (line.delayAfter) { await sleep(line.delayAfter); }
         }
 
-        startCrazyMode();
-
-        const finalCursorP = document.createElement('p');
-        const finalCursor = document.createElement('span');
-        finalCursor.className = 'cursor';
-        finalCursorP.appendChild(finalCursor);
-        terminal.appendChild(finalCursorP);
-        rebootButton.style.display = 'block';
+        if (terminalOverlay.style.display !== 'none') {
+            startCrazyMode();
+            const finalCursorP = document.createElement('p');
+            const finalCursor = document.createElement('span');
+            finalCursor.className = 'cursor';
+            finalCursorP.appendChild(finalCursor);
+            terminal.appendChild(finalCursorP);
+            rebootButton.style.display = 'block';
+        }
     }
 
     async function startNuclearSequence() {
@@ -204,6 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ];
 
         for (const line of countdownLines) {
+            if (terminalOverlay.style.display === 'none') return;
             const p = document.createElement('p');
             p.className = line.class;
             terminal.appendChild(p);
@@ -211,22 +247,21 @@ document.addEventListener('DOMContentLoaded', () => {
             await sleep(line.delayAfter);
         }
 
+        if (terminalOverlay.style.display === 'none') return;
+
         playExplosionSound();
         const flash = document.createElement('div');
         flash.className = 'flash';
-        document.body.appendChild(flash);
-        document.body.classList.add('nuclear-shake');
+        terminalOverlay.appendChild(flash);
+        terminalOverlay.classList.add('nuclear-shake');
 
         await sleep(1500);
 
-        document.body.classList.remove('nuclear-shake');
+        terminalOverlay.classList.remove('nuclear-shake');
         flash.remove();
         rebootButton.disabled = false;
         runPresentation();
     }
 
     rebootButton.addEventListener('click', startNuclearSequence);
-    document.body.addEventListener('click', setupAudio, { once: true });
-
-    runPresentation();
 });

@@ -1,27 +1,235 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciando... M.G.T.</title>
-    <link rel="stylesheet" href="style.css?v=1.0.0">
+    <title>Matias Gabriel Tello - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=2.0.0">
 </head>
+
 <body>
+    <div id="modern-app">
+        <nav class="navbar glass">
+            <div class="nav-content">
+                <div class="logo">MGT.</div>
+                <div class="nav-links">
+                    <a href="#about">Sobre Mí</a>
+                    <a href="#skills">Habilidades</a>
+                    <a href="#projects">Proyectos</a>
+                </div>
+                <button id="btn-terminal-mode" class="btn-primary" aria-label="Abrir Modo Terminal">
+                    <span class="material-icons-round">terminal</span> Terminal
+                </button>
+            </div>
+        </nav>
 
-    <div id="background-noise"></div>
+        <header class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">Técnico Informático</div>
+                <h1 class="hero-title">Matías Gabriel <span class="text-gradient">Tello</span></h1>
+                <p class="hero-subtitle">Estudiante de Lic. en Economía Industrial. Desarrollador por pasión. Creador de
+                    soluciones web y móviles.</p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn-primary">Ver mis proyectos</a>
+                    <a href="https://github.com/Mentitos" target="_blank" class="btn-secondary">GitHub</a>
+                </div>
+            </div>
+        </header>
 
-    <div class="corner corner-tl"></div>
-    <div class="corner corner-tr"></div>
-    <div class="corner corner-bl"></div>
-    <div class="corner corner-br"></div>
+        <section id="about" class="section">
+            <h2 class="section-title">Sobre Mí & Servicios</h2>
+            <div class="about-grid grid-2">
+                <div class="about-card glass box-hover">
+                    <i class="material-icons-round md-48">code</i>
+                    <h3>Programar por diversión</h3>
+                    <p>Encuentro satisfacción en resolver problemas reales y automatizar tareas a través del código. Ya
+                        sea creando aplicaciones móviles o interfaces webs ricas en estética.</p>
+                </div>
+                <div class="about-card glass box-hover border-accent">
+                    <i class="material-icons-round md-48">storefront</i>
+                    <h3>Servicios Freelance</h3>
+                    <p>Desarrollo páginas web y aplicaciones a precios accesibles. Soluciones de calidad, sin
+                        complicaciones.</p>
+                    <ul style="margin-top: 15px; padding-left: 20px; color: var(--text-muted);">
+                        <li>Páginas Web desde <strong>$50.000</strong></li>
+                        <li>Aplicaciones (Android) desde <strong>$700.000</strong> <span
+                                style="font-size: 0.8em;">(Precio charlable por proyectos simples)</span></li>
+                    </ul>
+                    <p style="margin-top:15px; font-weight: 600; color: var(--accent);">
+                        Echá un vistazo a mis <a href="#projects">proyectos</a> para ver la resolución de problemas y
+                        calidad que manejo.
+                    </p>
+                    <div style="margin-top: 20px;">
+                        <a href="https://wa.me/5491140655097?text=Hola%20Mat%C3%ADas!%20Me%20interesaron%20tus%20servicios%20de%20desarrollo%20al%20ver%20tu%20portfolio."
+                            target="_blank" class="btn-whatsapp">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+                            </svg>
+                            Consultar por WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <div id="terminal" class="terminal">
-        <!-- JavaScript -->
+        <section id="skills" class="section">
+            <h2 class="section-title">Tecnologías</h2>
+            <div class="skills-grid">
+                <div class="skill-pill"><img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg"
+                        alt="Flutter" width="24" height="24"> Flutter</div>
+                <div class="skill-pill"><img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5"
+                        width="24" height="24"> HTML5</div>
+                <div class="skill-pill"><img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3"
+                        width="24" height="24"> CSS3</div>
+                <div class="skill-pill"><img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                        alt="JavaScript" width="24" height="24"> JavaScript</div>
+                <div class="skill-pill"><img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"
+                        width="24" height="24"> Python</div>
+                <div class="skill-pill"><img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"
+                        width="24" height="24"> Java</div>
+                <div class="skill-pill"><img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL"
+                        width="24" height="24"> MySQL</div>
+                <div class="skill-pill"><img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux"
+                        width="24" height="24"> Linux</div>
+                <div class="skill-pill"><img
+                        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="Bash"
+                        width="24" height="24"> Bash</div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <h2 class="section-title">Proyectos Destacados</h2>
+
+            <div class="projects-category">Open Source / Aplicaciones</div>
+            <div class="projects-grid">
+                <a href="https://mentitos.github.io/finanzaslibre-pagina/" target="_blank"
+                    class="project-card glass hover-lift">
+                    <div class="project-icon"><i class="material-icons-round">account_balance_wallet</i></div>
+                    <h3>Finanzas Libre</h3>
+                    <p>App móvil para la gestión integral de finanzas personales. Disponible para descargar (APK).</p>
+                    <span class="project-link-text">Ver Proyecto <i
+                            class="material-icons-round">arrow_forward</i></span>
+                </a>
+                <a href="https://mentitos.github.io/horarios-pagina/" target="_blank"
+                    class="project-card glass hover-lift">
+                    <div class="project-icon"><i class="material-icons-round">schedule</i></div>
+                    <h3>Horarios UNGS</h3>
+                    <p>Gestión de horarios de cursada. Nació de un proyecto en conjunto, exportado como Web y Android.
+                    </p>
+                    <span class="project-link-text">Ver Proyecto <i
+                            class="material-icons-round">arrow_forward</i></span>
+                </a>
+                <a href="https://mentitos.github.io/materiasungsporcentaje/" target="_blank"
+                    class="project-card glass hover-lift">
+                    <div class="project-icon"><i class="material-icons-round">show_chart</i></div>
+                    <h3>Calculadora Progreso</h3>
+                    <p>Página web interactiva original para calcular el porcentaje de avance en tu carrera.</p>
+                    <span class="project-link-text">Ver Proyecto <i
+                            class="material-icons-round">arrow_forward</i></span>
+                </a>
+            </div>
+
+            <div class="projects-category mt-2">Desarrollo Web</div>
+            <div class="projects-grid">
+                <a href="https://mentitos.github.io/GabrielaS/" target="_blank" class="project-card glass hover-lift">
+                    <div class="project-icon"><i class="material-icons-round">spa</i></div>
+                    <h3>GabrielaS</h3>
+                    <p>Página web de Gabriela, una emprendedora dedicada a la venta de aceite CBD.</p>
+                    <span class="project-link-text">Visitar Web <i class="material-icons-round">arrow_forward</i></span>
+                </a>
+                <a href="https://mentitos.github.io/Ferrovias/" target="_blank" class="project-card glass hover-lift">
+                    <div class="project-icon"><i class="material-icons-round">train</i></div>
+                    <h3>Ferrovias</h3>
+                    <p>Una mejor página para ver los horarios del tren Belgrano Norte "El Rojito".</p>
+                    <span class="project-link-text">Visitar Web <i class="material-icons-round">arrow_forward</i></span>
+                </a>
+                <a href="https://mentitos.github.io/distrimas/" target="_blank" class="project-card glass hover-lift">
+                    <div class="project-icon"><i class="material-icons-round">local_shipping</i></div>
+                    <h3>Distrimas</h3>
+                    <p>Página web demo para una distribuidora de harinas y demás panificados.</p>
+                    <span class="project-link-text">Visitar Web <i class="material-icons-round">arrow_forward</i></span>
+                </a>
+                <a href="https://mentitos.github.io/Reparaciones.Francisconi/" target="_blank"
+                    class="project-card glass hover-lift">
+                    <div class="project-icon"><i class="material-icons-round">build</i></div>
+                    <h3>Reparaciones Francisconi</h3>
+                    <p>Página web para negocio de reparación de electrodomésticos.</p>
+                    <span class="project-link-text">Visitar Web <i class="material-icons-round">arrow_forward</i></span>
+                </a>
+                <a href="https://mentitos.github.io/los-dos-pibes/" target="_blank"
+                    class="project-card glass hover-lift">
+                    <div class="project-icon"><i class="material-icons-round">storefront</i></div>
+                    <h3>Los Dos Pibes</h3>
+                    <p>Página para un corralón "Los dos pibes". Demo web.</p>
+                    <span class="project-link-text">Visitar Web <i class="material-icons-round">arrow_forward</i></span>
+                </a>
+                <a href="https://mentitos.github.io/chillimicalamejor-fanpage/" target="_blank"
+                    class="project-card glass hover-lift">
+                    <div class="project-icon"><i class="material-icons-round">star</i></div>
+                    <h3>Fanpage Chillimica</h3>
+                    <p>Página fan dedicada a Chillimica.</p>
+                    <span class="project-link-text">Visitar Web <i class="material-icons-round">arrow_forward</i></span>
+                </a>
+                <a href="https://mentitos.github.io/QRgenerador/" target="_blank" class="project-card glass hover-lift">
+                    <div class="project-icon"><i class="material-icons-round">qr_code_2</i></div>
+                    <h3>QR Generador</h3>
+                    <p>Un generador de códigos QR simple y rápido de usar en web.</p>
+                    <span class="project-link-text">Visitar Web <i class="material-icons-round">arrow_forward</i></span>
+                </a>
+            </div>
+
+            <div class="projects-category mt-2">Juegos y Curiosidades (Silly)</div>
+            <div class="projects-grid">
+                <a href="https://mentitos.github.io/idle/" target="_blank"
+                    class="project-card glass hover-lift border-accent">
+                    <div class="project-icon"><i class="material-icons-round">videogame_asset</i></div>
+                    <h3>Idle de Desarrollo</h3>
+                    <p>Un juego incremental (Dev Empire) en el que puedes armar tu propio imperio de software.</p>
+                    <span class="project-link-text">Jugar <i class="material-icons-round">arrow_forward</i></span>
+                </a>
+                <a href="https://github.com/Mentitos/Game-Of-Life-In-Your-Terminal" target="_blank"
+                    class="project-card glass hover-lift border-accent">
+                    <div class="project-icon"><i class="material-icons-round">terminal</i></div>
+                    <h3>Game of Life</h3>
+                    <p>El clásico juego de la vida de Conway, pero corriendo directamente en tu consola/terminal.</p>
+                    <span class="project-link-text">Ver Repo <i class="material-icons-round">arrow_forward</i></span>
+                </a>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 Matías Gabriel Tello. Desarrollador Web y de Aplicaciones.</p>
+        </footer>
     </div>
 
-    <button id="reboot-button" class="reboot-button" style="display: none;">&#9762;</button>
+    <div id="terminal-overlay" style="display: none;">
+        <button id="btn-close-terminal" class="btn-primary" aria-label="Cerrar Terminal">&times; CERRAR MODO
+            TERMINAL</button>
+        <div id="background-noise"></div>
+        <div class="corner corner-tl"></div>
+        <div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div>
+        <div class="corner corner-br"></div>
+        <div id="terminal" class="terminal">
+        </div>
+        <button id="reboot-button" class="reboot-button" style="display: none;">&#9762;</button>
+    </div>
 
-    <script src="script.js?v=1.0.0"></script>
+    <script src="script.js?v=2.0.0"></script>
 </body>
+
 </html>
