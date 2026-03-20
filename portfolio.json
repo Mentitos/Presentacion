@@ -1,0 +1,119 @@
+{
+  "categories": [
+    {
+      "name": "Open Source / Aplicaciones",
+      "items": [
+        {
+          "icon": "account_balance_wallet",
+          "title": "Finanzas Libre",
+          "description": "App móvil para la gestión integral de finanzas personales. Disponible para descargar (APK).",
+          "link_text": "Ver Proyecto",
+          "link_url": "https://mentitos.github.io/finanzaslibre-pagina/",
+          "image": "./assets/projects/finanzas-libre.png",
+          "tag": "Economía"
+        },
+        {
+          "icon": "schedule",
+          "title": "Horarios UNGS",
+          "description": "Gestión de horarios de cursada. Nació de un proyecto en conjunto, exportado como Web y Android.",
+          "link_text": "Ver Proyecto",
+          "link_url": "https://mentitos.github.io/horarios-pagina/",
+          "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCLBJVgGcTylmIY-SL2Rs4xbzcSAZ9KYZ9wxtSeb_d9zze_8Ya20GZfYSd1JwZPqhrZCM8mIPxldGTeUxeMRPCJNQnrF9ZiR6e3RRwVhOMJLep7KYqTLzyWL8MW2qz0I8E8jOX2GcMBf3Kjb4rFyFjGjScsuOOXJVr7Hbl2PJomlXiaezqZJx79VTfQcrt0GHXx3SD8L2GdBjv1Lcw5Jc8m4shlR0JACzi1geiDQ7IMCdzfirYtCFwY9rYrFVqpApvo85IEBTZaqfED",
+          "tag": "Educación"
+        },
+        {
+          "icon": "show_chart",
+          "title": "Calculadora Progreso",
+          "description": "Página web interactiva original para calcular el porcentaje de avance en tu carrera.",
+          "link_text": "Ver Proyecto",
+          "link_url": "https://mentitos.github.io/materiasungsporcentaje/",
+          "tag": "Utilidad"
+        }
+      ]
+    },
+    {
+      "name": "Desarrollo Web",
+      "items": [
+        {
+          "icon": "spa",
+          "title": "GabrielaS",
+          "description": "Página web de Gabriela, una emprendedora dedicada a la venta de aceite CBD.",
+          "link_text": "Visitar Web",
+          "link_url": "https://mentitos.github.io/GabrielaS/",
+          "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBza9wzvOCtxX9UeF9Eg_5gbKAelVVWfuE6UMb1ffCMpIojDzW4pxgE-39lPzFGuNmO78R2OGY5G3uMcK-hH7xfIucsbz6QIshnALPmQKG2RNB3rIB2ahQBrIOWtSuHO83xqA3NvUVdxgtt5Mhk5XX9Fy-7WzM7A8zdsVuE6fY3NJPzV5xy0qhauti_HH8b4HolGPIoFbS4hZ2VhHOHDcpbsvwlMAqNZqqJ7k1cnmiZu12c5OmIv7D0yk4cbb99w2QQ_8k4-5b0QFED",
+          "tag": "Web Design"
+        },
+        {
+          "icon": "train",
+          "title": "Ferrovias",
+          "description": "Una mejor página para ver los horarios del tren Belgrano Norte \"El Rojito\".",
+          "link_text": "Visitar Web",
+          "link_url": "https://mentitos.github.io/Ferrovias/",
+          "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuATRbYEreolQC_IrvmQda3nq8CrLXc9CuC6aDad-hnfn_mks_9qvB0VST_cwbM9F_lnS9URv9TLW7tq78q0VqwzzZmy2b6hr5aMyd944dDbyQ-OUUXsQkvQU0kbviNJpjjE-5VELmav_-ISN-KaY3YvZgwcjj_u9ZZSV9SbAfQsRppSEGbra91vSQMznFljRQkAxJZjZln5EN8-99LgNyElku3uQQHRKVz9qHNuQpVCc-5A6QbEuhfE5DAhPvYp54MOs6W_3trSna7k",
+          "tag": "Logística"
+        },
+        {
+          "icon": "local_shipping",
+          "title": "Distrimas",
+          "description": "Página web demo para una distribuidora de harinas y demás panificados.",
+          "link_text": "Visitar Web",
+          "link_url": "https://mentitos.github.io/distrimas/",
+          "tag": "E-commerce"
+        },
+        {
+          "icon": "build",
+          "title": "Reparaciones Francisconi",
+          "description": "Página web para negocio de reparación de electrodomésticos.",
+          "link_text": "Visitar Web",
+          "link_url": "https://mentitos.github.io/Reparaciones.Francisconi/",
+          "tag": "Servicios"
+        },
+        {
+          "icon": "storefront",
+          "title": "Los Dos Pibes",
+          "description": "Página para un corralón \"Los dos pibes\". Demo web.",
+          "link_text": "Visitar Web",
+          "link_url": "https://mentitos.github.io/los-dos-pibes/",
+          "tag": "Corralón"
+        },
+        {
+          "icon": "star",
+          "title": "Fanpage Chillimica",
+          "description": "Página fan dedicada a Chillimica.",
+          "link_text": "Visitar Web",
+          "link_url": "https://mentitos.github.io/chillimicalamejor-fanpage/",
+          "tag": "Fanpage"
+        },
+        {
+          "icon": "qr_code_2",
+          "title": "QR Generador",
+          "description": "Un generador de códigos QR simple y rápido de usar en web.",
+          "link_text": "Visitar Web",
+          "link_url": "https://mentitos.github.io/QRgenerador/",
+          "tag": "Herramienta"
+        }
+      ]
+    },
+    {
+      "name": "Juegos y Curiosidades (Silly)",
+      "items": [
+        {
+          "icon": "videogame_asset",
+          "title": "Idle de Desarrollo",
+          "description": "Un juego incremental (Dev Empire) en el que puedes armar tu propio imperio de software.",
+          "link_text": "Jugar",
+          "link_url": "https://mentitos.github.io/idle/",
+          "tag": "Game"
+        },
+        {
+          "icon": "terminal",
+          "title": "Game of Life",
+          "description": "El clásico juego de la vida de Conway, pero corriendo directamente en tu consola/terminal.",
+          "link_text": "Ver Repo",
+          "link_url": "https://github.com/Mentitos/Game-Of-Life-In-Your-Terminal",
+          "tag": "Simulation"
+        }
+      ]
+    }
+  ]
+}

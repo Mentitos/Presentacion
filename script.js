@@ -3,36 +3,67 @@ document.addEventListener('DOMContentLoaded', () => {
     const terminalOverlay = document.getElementById('terminal-overlay');
     const btnOpenTerminal = document.getElementById('btn-terminal-mode');
     const btnCloseTerminal = document.getElementById('btn-close-terminal');
-
-    btnOpenTerminal.addEventListener('click', () => {
-        modernApp.style.display = 'none';
-        terminalOverlay.style.display = 'flex';
-        terminal.innerHTML = '';
-        backgroundNoise.textContent = '';
-        rebootButton.style.display = 'none';
-        setupAudio();
-        runPresentation();
-    });
-
-    btnCloseTerminal.addEventListener('click', () => {
-        clearInterval(robotInterval);
-        stopCrazyMode();
-        if (keySoundOscillator) { try { keySoundOscillator.stop(); } catch (e) { } }
-
-        terminalOverlay.style.display = 'none';
-        modernApp.style.display = 'block';
-    });
-
-
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
     const terminal = document.getElementById('terminal');
     const rebootButton = document.getElementById('reboot-button');
     const backgroundNoise = document.getElementById('background-noise');
+
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+        if (themeIcon) themeIcon.textContent = 'light_mode';
+    }
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.contains('dark');
+            if (isDark) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                if (themeIcon) themeIcon.textContent = 'dark_mode';
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                if (themeIcon) themeIcon.textContent = 'light_mode';
+            }
+        });
+    }
+
+    if (btnOpenTerminal && terminalOverlay && modernApp) {
+        btnOpenTerminal.addEventListener('click', () => {
+            console.log("Abriendo Terminal...");
+            modernApp.style.display = 'none';
+            terminalOverlay.style.display = 'flex';
+            if (terminal) terminal.innerHTML = '';
+            if (backgroundNoise) backgroundNoise.textContent = '';
+            if (rebootButton) rebootButton.style.display = 'none';
+            setupAudio();
+            runPresentation();
+        });
+    }
+
+    if (btnCloseTerminal && terminalOverlay && modernApp) {
+        btnCloseTerminal.addEventListener('click', () => {
+            console.log("Cerrando Terminal...");
+            clearInterval(robotInterval);
+            stopCrazyMode();
+            if (keySoundOscillator) { try { keySoundOscillator.stop(); } catch (e) { } }
+            terminalOverlay.style.display = 'none';
+            modernApp.style.display = 'block';
+        });
+    }
+
+    if (rebootButton) {
+        rebootButton.addEventListener('click', startNuclearSequence);
+    }
 
     let audioCtx;
     let keySoundOscillator;
     let robotInterval;
     let crazyIntervals = [];
     const TYPING_SPEED = 10;
+
 
     function setupAudio() {
         if (audioCtx) return;
@@ -264,4 +295,71 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     rebootButton.addEventListener('click', startNuclearSequence);
+
+    async function loadProjects() {
+        try {
+            const response = await fetch('portfolio.json');
+            const data = await response.json();
+            const container = document.getElementById('projects-container');
+            if (!container) return;
+
+            data.categories.forEach((category, index) => {
+                const section = document.createElement('section');
+                section.className = 'mb-24';
+
+                const headerHtml = `
+                    <div class="flex items-end justify-between mb-16">
+                        <div>
+                            <h2 class="text-4xl md:text-5xl font-black tracking-tighter mb-4 text-white">${category.name}</h2>
+                            <p class="text-on-surface-variant">Colección de mis trabajos en esta categoría.</p>
+                        </div>
+                        <div class="hidden md:block h-[1px] flex-grow mx-12 bg-outline-variant/20"></div>
+                        <span class="text-xs uppercase tracking-widest text-on-surface-variant">0${index + 2} / Work</span>
+                    </div>
+                `;
+                section.innerHTML = headerHtml;
+
+                const grid = document.createElement('div');
+                grid.className = 'grid grid-cols-1 md:grid-cols-2 gap-12';
+
+                category.items.forEach((item, i) => {
+                    const card = document.createElement('a');
+                    card.href = item.link_url;
+                    card.target = '_blank';
+                    card.className = `group ${i % 2 !== 0 ? 'md:mt-24' : ''} block`;
+
+                    let mediaHtml = '';
+                    if (item.image) {
+                        mediaHtml = `<img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100">`;
+                    } else {
+                        mediaHtml = `<span class="material-symbols-outlined text-[100px] text-primary opacity-80 group-hover:scale-110 group-hover:opacity-100 transition-all duration-700">${item.icon}</span>`;
+                    }
+
+                    card.innerHTML = `
+                        <div class="project-card-container relative overflow-hidden aspect-[16/10] bg-surface-container-high rounded-xl mb-6 flex items-center justify-center border border-primary/10 transition-colors group-hover:border-primary/40">
+                            ${mediaHtml}
+                            <div class="absolute top-6 left-6 flex gap-2">
+                                <span class="px-3 py-1 bg-black/40 backdrop-blur-md rounded-lg text-[10px] font-bold uppercase tracking-wider text-primary">${item.tag || 'Proyecto'}</span>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2 text-white group-hover:text-primary transition-colors">${item.title}</h3>
+                        <p class="text-on-surface-variant leading-relaxed mb-4">${item.description}</p>
+                        <span class="flex items-center gap-2 text-primary font-bold text-sm uppercase tracking-wider opacity-80 group-hover:opacity-100 transition-opacity">
+                            ${item.link_text} <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        </span>
+                    `;
+                    grid.appendChild(card);
+                });
+
+                section.appendChild(grid);
+                container.appendChild(section);
+            });
+        } catch (error) {
+            console.error('Error cargando proyectos:', error);
+            const container = document.getElementById('projects-container');
+            if (container) container.innerHTML = '<p class="text-center text-error">Error al cargar los proyectos.</p>';
+        }
+    }
+
+    loadProjects();
 });
