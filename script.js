@@ -296,70 +296,206 @@ document.addEventListener('DOMContentLoaded', () => {
 
     rebootButton.addEventListener('click', startNuclearSequence);
 
-    async function loadProjects() {
+    // Content Rendering System
+    async function initDynamicContent() {
         try {
             const response = await fetch('portfolio.json');
             const data = await response.json();
-            const container = document.getElementById('projects-container');
-            if (!container) return;
 
-            data.categories.forEach((category, index) => {
-                const section = document.createElement('section');
-                section.className = 'mb-24';
+            renderHero(data.hero);
+            renderExpertise(data.expertise);
+            renderSkills(data.skills);
+            renderProjects(data.categories);
+            renderCTA(data.cta);
+            renderFooter(data.footer);
 
-                const headerHtml = `
+        } catch (error) {
+            console.error('Error cargando el contenido del portafolio:', error);
+        }
+    }
+
+    function renderHero(hero) {
+        const container = document.getElementById('hero-container');
+        if (!container || !hero) return;
+
+        let buttonHtml = hero.cta_text ? `
+            <div class="mt-12">
+                <a href="${hero.cta_link}" class="inline-block bg-primary text-black px-8 py-4 rounded-full font-black uppercase tracking-widest text-xs hover:scale-105 transition-transform duration-400">
+                    ${hero.cta_text}
+                </a>
+            </div>
+        ` : '';
+
+        container.innerHTML = `
+            <div class="max-w-4xl">
+                <span class="inline-block px-3 py-1 bg-surface-container rounded-lg text-primary text-[10px] font-bold tracking-[0.2em] uppercase mb-6">${hero.tag}</span>
+                <h1 class="text-6xl md:text-8xl font-black tracking-[-0.04em] leading-[0.9] mb-8 text-white">
+                    ${hero.title}
+                </h1>
+                <p class="text-xl md:text-2xl text-on-surface-variant font-light leading-relaxed max-w-2xl">
+                    ${hero.description}
+                </p>
+                ${buttonHtml}
+            </div>
+        `;
+    }
+
+    function renderExpertise(expertise) {
+        const header = document.getElementById('expertise-header');
+        const grid = document.getElementById('expertise-grid');
+        if (!header || !grid || !expertise) return;
+
+        header.innerHTML = `
+            <div class="flex items-end justify-between mb-12">
+                <h2 class="text-3xl font-bold tracking-tight">${expertise.title}</h2>
+                <span class="text-xs uppercase tracking-widest text-on-surface-variant">01 / Expertise</span>
+            </div>
+        `;
+
+        grid.innerHTML = expertise.items.map(item => {
+            if (item.type === 'card-large') {
+                return `
+                    <div class="md:col-span-7 bg-surface-container-low p-10 rounded-xl flex flex-col justify-between min-h-[400px]">
+                        <div class="space-y-4">
+                            <span class="material-symbols-outlined text-primary text-4xl">${item.icon}</span>
+                            <h3 class="text-3xl font-bold tracking-tight text-white">${item.title}</h3>
+                            <p class="text-on-surface-variant text-lg leading-relaxed max-w-md">
+                                ${item.description}
+                            </p>
+                        </div>
+                        <div class="mt-8 flex gap-4">
+                            ${item.tags.map(tag => `<div class="px-4 py-2 bg-surface-container rounded-full text-xs font-medium border border-outline-variant/15 text-white">${tag}</div>`).join('')}
+                        </div>
+                    </div>
+                `;
+            } else if (item.type === 'card-small') {
+                let buttonHtml = item.cta_text ? `
+                    <div class="mt-8">
+                        <a href="${item.cta_link}" target="_blank" class="inline-block bg-primary text-black px-6 py-3 rounded-full font-black uppercase tracking-[0.1em] text-[10px] hover:scale-105 transition-transform duration-300 shadow-[0_4px_10px_rgba(136,173,255,0.2)]">
+                            ${item.cta_text}
+                        </a>
+                    </div>
+                ` : '';
+                
+                return `
+                    <div class="md:col-span-5 bg-surface-container-high p-10 rounded-xl border border-primary/10 group hover:border-primary/40 transition-colors flex flex-col">
+                        <h4 class="text-primary text-xs font-bold tracking-widest uppercase mb-2">${item.category}</h4>
+                        <h3 class="text-2xl font-bold mb-4 text-white">${item.title}</h3>
+                        <p class="text-on-surface-variant mb-8">${item.description}</p>
+                        <div class="mt-auto">
+                            <p class="text-xs text-on-surface-variant uppercase tracking-widest mb-1">${item.price_label}</p>
+                            <p class="text-4xl font-black text-white mb-4">${item.price}</p>
+                            ${buttonHtml}
+                        </div>
+                    </div>
+                `;
+            } else if (item.type === 'card-accent') {
+                return `
+                    <div class="md:col-span-7 bg-surface-container p-10 rounded-xl relative overflow-hidden">
+                        <div class="relative z-10">
+                            <h3 class="text-xl font-bold mb-4 text-white">${item.title}</h3>
+                            <p class="text-on-surface-variant">${item.description}</p>
+                        </div>
+                        <div class="absolute -bottom-10 -right-10 opacity-10">
+                            <span class="material-symbols-outlined text-[200px] text-primary">${item.icon}</span>
+                        </div>
+                    </div>
+                `;
+            }
+            return '';
+        }).join('');
+    }
+
+    function renderSkills(skills) {
+        const container = document.getElementById('skills-container');
+        if (!container || !skills) return;
+
+        container.innerHTML = skills.map(skill => `
+            <div class="flex items-center gap-4 px-8 py-5 bg-surface-container rounded-3xl border border-outline-variant/10 hover:border-primary/30 transition-all">
+                <img src="${skill.icon}" class="w-10 h-10" alt="${skill.name}">
+                <span class="text-lg font-bold">${skill.name}</span>
+            </div>
+        `).join('');
+    }
+
+    function renderProjects(categories) {
+        const container = document.getElementById('projects-container');
+        if (!container || !categories) return;
+
+        container.innerHTML = categories.map((category, index) => {
+            const itemsHtml = category.items.map((item, i) => {
+                let mediaHtml = item.image ? `<img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100">` : `<span class="material-symbols-outlined text-[100px] text-primary opacity-80 group-hover:scale-110 group-hover:opacity-100 transition-all duration-700">${item.icon}</span>`;
+                
+                return `
+                    <a href="${item.link_url}" target="_blank" class="group ${i % 2 !== 0 ? 'md:mt-24' : ''} block">
+                        <div class="relative aspect-[4/3] overflow-hidden rounded-3xl bg-surface-container-low mb-8 project-card-container">
+                            ${mediaHtml}
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div class="absolute bottom-8 left-8 right-8 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                                <span class="material-symbols-outlined text-white text-3xl">arrow_outward</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-2xl font-black mb-2 text-white group-hover:text-primary transition-colors">${item.title}</h3>
+                                <p class="text-on-surface-variant line-clamp-2 max-w-sm">${item.description}</p>
+                            </div>
+                            <span class="text-[10px] font-bold tracking-widest uppercase text-primary/40 pt-2">${item.tag || 'Work'}</span>
+                        </div>
+                    </a>
+                `;
+            }).join('');
+
+            return `
+                <section class="mb-24">
                     <div class="flex items-end justify-between mb-16">
                         <div>
-                            <h2 class="text-4xl md:text-5xl font-black tracking-tighter mb-4 text-white">${category.name}</h2>
+                            <h2 class="text-xs font-bold tracking-[0.3em] uppercase text-primary mb-4">${category.name}</h2>
                             <p class="text-on-surface-variant">Colección de mis trabajos en esta categoría.</p>
                         </div>
                         <div class="hidden md:block h-[1px] flex-grow mx-12 bg-outline-variant/20"></div>
                         <span class="text-xs uppercase tracking-widest text-on-surface-variant">0${index + 2} / Work</span>
                     </div>
-                `;
-                section.innerHTML = headerHtml;
-
-                const grid = document.createElement('div');
-                grid.className = 'grid grid-cols-1 md:grid-cols-2 gap-12';
-
-                category.items.forEach((item, i) => {
-                    const card = document.createElement('a');
-                    card.href = item.link_url;
-                    card.target = '_blank';
-                    card.className = `group ${i % 2 !== 0 ? 'md:mt-24' : ''} block`;
-
-                    let mediaHtml = '';
-                    if (item.image) {
-                        mediaHtml = `<img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100">`;
-                    } else {
-                        mediaHtml = `<span class="material-symbols-outlined text-[100px] text-primary opacity-80 group-hover:scale-110 group-hover:opacity-100 transition-all duration-700">${item.icon}</span>`;
-                    }
-
-                    card.innerHTML = `
-                        <div class="project-card-container relative overflow-hidden aspect-[16/10] bg-surface-container-high rounded-xl mb-6 flex items-center justify-center border border-primary/10 transition-colors group-hover:border-primary/40">
-                            ${mediaHtml}
-                            <div class="absolute top-6 left-6 flex gap-2">
-                                <span class="px-3 py-1 bg-black/40 backdrop-blur-md rounded-lg text-[10px] font-bold uppercase tracking-wider text-primary">${item.tag || 'Proyecto'}</span>
-                            </div>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-2 text-white group-hover:text-primary transition-colors">${item.title}</h3>
-                        <p class="text-on-surface-variant leading-relaxed mb-4">${item.description}</p>
-                        <span class="flex items-center gap-2 text-primary font-bold text-sm uppercase tracking-wider opacity-80 group-hover:opacity-100 transition-opacity">
-                            ${item.link_text} <span class="material-symbols-outlined text-sm">arrow_forward</span>
-                        </span>
-                    `;
-                    grid.appendChild(card);
-                });
-
-                section.appendChild(grid);
-                container.appendChild(section);
-            });
-        } catch (error) {
-            console.error('Error cargando proyectos:', error);
-            const container = document.getElementById('projects-container');
-            if (container) container.innerHTML = '<p class="text-center text-error">Error al cargar los proyectos.</p>';
-        }
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
+                        ${itemsHtml}
+                    </div>
+                </section>
+            `;
+        }).join('');
     }
 
-    loadProjects();
+    function renderCTA(cta) {
+        const container = document.getElementById('cta-container');
+        if (!container || !cta) return;
+
+        container.setAttribute('id', 'contact');
+        container.innerHTML = `
+            <div class="relative z-10 max-w-2xl mx-auto px-6">
+                <h2 class="text-5xl md:text-6xl font-black mb-8 leading-tight text-white">${cta.title}</h2>
+                <p class="text-on-surface-variant text-lg mb-12">${cta.description}</p>
+                <a class="inline-block bg-[#25D366] text-white px-10 py-5 rounded-full font-black uppercase tracking-[0.2em] text-sm hover:scale-105 transition-transform duration-400 shadow-[0_4px_15px_rgba(37,211,102,0.3)]"
+                    href="${cta.link}" target="_blank">
+                    ${cta.button_text}
+                </a>
+            </div>
+            <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 blur-[120px] -translate-y-1/2 translate-x-1/2 rounded-full pointer-events-none"></div>
+        `;
+    }
+
+    function renderFooter(footer) {
+        const container = document.getElementById('footer-container');
+        if (!container || !footer) return;
+
+        container.innerHTML = `
+            <div class="text-lg font-bold text-white tracking-tighter uppercase">MGT.</div>
+            <div class="text-[#adaaaa] text-xs font-medium max-w-md text-center">
+                ${footer.copyright}
+            </div>
+            <div class="flex gap-8 font-['Inter'] text-[#adaaaa] text-xs tracking-widest uppercase">
+                ${footer.links.map(link => `<a class="hover:text-white transition-colors duration-400" href="${link.url}" target="_blank">${link.name}</a>`).join('')}
+            </div>
+        `;
+    }
+
+    initDynamicContent();
 });

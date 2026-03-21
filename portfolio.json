@@ -1,4 +1,63 @@
 {
+  "hero": {
+    "tag": "Técnico Informático",
+    "title": "Matías Gabriel <br /> <span class=\"text-primary-container\">Tello.</span>",
+    "description": "Estudiante de Lic. en Economía Industrial. Desarrollador por pasión. Creador de soluciones web y móviles con enfoque en eficiencia y estética moderna.",
+    "cta_text": "Contactar",
+    "cta_link": "#contact"
+  },
+  "expertise": {
+    "title": "Sobre Mí & Servicios",
+    "items": [
+      {
+        "id": "fun",
+        "type": "card-large",
+        "icon": "code",
+        "title": "Programar por diversión",
+        "description": "Encuentro satisfacción en resolver problemas reales y automatizar tareas a través del código. Ya sea creando aplicaciones móviles o interfaces webs ricas en estética.",
+        "tags": ["Open Source", "Apps Móviles"]
+      },
+      {
+        "id": "web",
+        "type": "card-small",
+        "category": "Freelance",
+        "title": "Desarrollo Web",
+        "description": "Soluciones web accesibles y de calidad, sin complicaciones.",
+        "price_label": "Iniciando en",
+        "price": "$50.000",
+        "cta_text": "Consultar",
+        "cta_link": "https://wa.me/5491140655097?text=Hola%20Mat%C3%ADas!%20Me%20interes%C3%B3%20la%20p%C3%A1gina%20web."
+      },
+      {
+        "id": "apps",
+        "type": "card-small",
+        "category": "Freelance",
+        "title": "Aplicaciones (Android)",
+        "description": "Desarrollo de calidad con precios escalables según complejidad.",
+        "price_label": "Iniciando en",
+        "price": "$700.000",
+        "cta_text": "Consultar",
+        "cta_link": "https://wa.me/5491140655097?text=Hola%20Mat%C3%ADas!%20Me%20interes%C3%B3%20lo%20de%20la%20aplicaci%C3%B3n."
+      },
+      {
+        "id": "bio",
+        "type": "card-accent",
+        "icon": "trending_up",
+        "title": "Economía + Código",
+        "description": "Mi formación en Economía Industrial me permite entender los procesos de negocio antes de escribir la primera línea de código, garantizando productos que realmente agregan valor económico."
+      }
+    ]
+  },
+  "skills": [
+    { "name": "Flutter", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" },
+    { "name": "Python", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+    { "name": "Java", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
+    { "name": "Linux", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
+    { "name": "HTML5", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+    { "name": "CSS3", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+    { "name": "JavaScript", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+    { "name": "MySQL", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" }
+  ],
   "categories": [
     {
       "name": "Open Source / Aplicaciones",
@@ -115,5 +174,18 @@
         }
       ]
     }
-  ]
+  ],
+  "cta": {
+    "title": "¿Hablamos de tu proyecto?",
+    "description": "Actualmente disponible para nuevos proyectos y colaboraciones.",
+    "button_text": "Contactar por WhatsApp",
+    "link": "https://wa.me/5491140655097?text=Hola%20Mat%C3%ADas!%20Me%20interesaron%20tus%20servicios%20de%20desarrollo."
+  },
+  "footer": {
+    "copyright": "© 2026 Matías Gabriel Tello. Desarrollador Web y Móvil.",
+    "links": [
+      { "name": "WhatsApp", "url": "https://wa.me/5491140655097?text=Hola%20Mat%C3%ADas!%20Me%20interesaron%20tus%20servicios%20de%20desarrollo." },
+      { "name": "GitHub", "url": "https://github.com/Mentitos" }
+    ]
+  }
 }
