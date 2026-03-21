@@ -177,6 +177,14 @@
           "link_text": "Visitar Web",
           "link_url": "https://mentitos.github.io/QRgenerador/",
           "tag": "Herramienta"
+        },
+        {
+          "icon": "star",
+          "title": "Portafolio del artista Milo ",
+          "description": "Página de portafolio con un cms no-code para que se pueda editar el contenido, multi idioma, varios temas.",
+          "link_text": "Ver Proyecto",
+          "link_url": "https://mentitos.github.io/MILO_Portafolio/",
+          "tag": "Portafolio Artistico"
         }
       ]
     },
