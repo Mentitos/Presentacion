@@ -24,7 +24,7 @@
         "id": "web",
         "type": "card-small",
         "title": "Desarrollo Web",
-        "description": "Soluciones web accesibles y de calidad, sin complicaciones.",
+        "description": "Tu negocio abierto 24/7, desarrollo de paginas web para negocios con botón directo a tu whatsapp y poder editar desde tu celular.",
         "category": "Freelance",
         "price_label": "Iniciando en",
         "price": "$50.000",
@@ -121,6 +121,14 @@
       "name": "Desarrollo Web",
       "items": [
         {
+          "icon": "star",
+          "title": "Portafolio del artista Milo ",
+          "description": "Página de portafolio con un cms no-code para que se pueda editar el contenido, multi idioma, varios temas.",
+          "link_text": "Ver Proyecto",
+          "link_url": "https://mentitos.github.io/MILO_Portafolio/",
+          "tag": "Portafolio Artistico"
+        },
+        {
           "icon": "spa",
           "title": "GabrielaS",
           "description": "Página web de Gabriela, una emprendedora dedicada a la venta de aceite CBD.",
@@ -128,6 +136,14 @@
           "link_url": "https://mentitos.github.io/GabrielaS/",
           "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBza9wzvOCtxX9UeF9Eg_5gbKAelVVWfuE6UMb1ffCMpIojDzW4pxgE-39lPzFGuNmO78R2OGY5G3uMcK-hH7xfIucsbz6QIshnALPmQKG2RNB3rIB2ahQBrIOWtSuHO83xqA3NvUVdxgtt5Mhk5XX9Fy-7WzM7A8zdsVuE6fY3NJPzV5xy0qhauti_HH8b4HolGPIoFbS4hZ2VhHOHDcpbsvwlMAqNZqqJ7k1cnmiZu12c5OmIv7D0yk4cbb99w2QQ_8k4-5b0QFED",
           "tag": "Web Design"
+        },
+        {
+          "icon": "build",
+          "title": "Reparaciones Francisconi",
+          "description": "Página web para negocio de reparación de electrodomésticos.",
+          "link_text": "Visitar Web",
+          "link_url": "https://mentitos.github.io/Reparaciones.Francisconi/",
+          "tag": "Servicios"
         },
         {
           "icon": "train",
@@ -147,14 +163,6 @@
           "tag": "E-commerce"
         },
         {
-          "icon": "build",
-          "title": "Reparaciones Francisconi",
-          "description": "Página web para negocio de reparación de electrodomésticos.",
-          "link_text": "Visitar Web",
-          "link_url": "https://mentitos.github.io/Reparaciones.Francisconi/",
-          "tag": "Servicios"
-        },
-        {
           "icon": "storefront",
           "title": "Los Dos Pibes",
           "description": "Página para un corralón \"Los dos pibes\". Demo web.",
@@ -163,28 +171,12 @@
           "tag": "Corralón"
         },
         {
-          "icon": "star",
-          "title": "Fanpage Chillimica",
-          "description": "Página fan dedicada a Chillimica.",
-          "link_text": "Visitar Web",
-          "link_url": "https://mentitos.github.io/chillimicalamejor-fanpage/",
-          "tag": "Fanpage"
-        },
-        {
           "icon": "qr_code_2",
           "title": "QR Generador",
           "description": "Un generador de códigos QR simple y rápido de usar en web.",
           "link_text": "Visitar Web",
           "link_url": "https://mentitos.github.io/QRgenerador/",
           "tag": "Herramienta"
-        },
-        {
-          "icon": "star",
-          "title": "Portafolio del artista Milo ",
-          "description": "Página de portafolio con un cms no-code para que se pueda editar el contenido, multi idioma, varios temas.",
-          "link_text": "Ver Proyecto",
-          "link_url": "https://mentitos.github.io/MILO_Portafolio/",
-          "tag": "Portafolio Artistico"
         }
       ]
     },
