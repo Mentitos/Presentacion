@@ -12,17 +12,20 @@
       {
         "id": "fun",
         "type": "card-large",
-        "icon": "code",
         "title": "Programar por diversión",
         "description": "Encuentro satisfacción en resolver problemas reales y automatizar tareas a través del código. Ya sea creando aplicaciones móviles o interfaces webs ricas en estética.",
-        "tags": ["Open Source", "Apps Móviles"]
+        "icon": "code",
+        "tags": [
+          "Open Source",
+          "Apps Móviles"
+        ]
       },
       {
         "id": "web",
         "type": "card-small",
-        "category": "Freelance",
         "title": "Desarrollo Web",
         "description": "Soluciones web accesibles y de calidad, sin complicaciones.",
+        "category": "Freelance",
         "price_label": "Iniciando en",
         "price": "$50.000",
         "cta_text": "Consultar",
@@ -31,9 +34,9 @@
       {
         "id": "apps",
         "type": "card-small",
-        "category": "Freelance",
         "title": "Aplicaciones (Android)",
         "description": "Desarrollo de calidad con precios escalables según complejidad.",
+        "category": "Freelance",
         "price_label": "Iniciando en",
         "price": "$700.000",
         "cta_text": "Consultar",
@@ -42,21 +45,45 @@
       {
         "id": "bio",
         "type": "card-accent",
-        "icon": "trending_up",
         "title": "Economía + Código",
-        "description": "Mi formación en Economía Industrial me permite entender los procesos de negocio antes de escribir la primera línea de código, garantizando productos que realmente agregan valor económico."
+        "description": "Mi formación en Economía Industrial me permite entender los procesos de negocio antes de escribir la primera línea de código, garantizando productos que realmente agregan valor económico.",
+        "icon": "trending_up"
       }
     ]
   },
   "skills": [
-    { "name": "Flutter", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" },
-    { "name": "Python", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
-    { "name": "Java", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
-    { "name": "Linux", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
-    { "name": "HTML5", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
-    { "name": "CSS3", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
-    { "name": "JavaScript", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
-    { "name": "MySQL", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" }
+    {
+      "name": "Flutter",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg"
+    },
+    {
+      "name": "Python",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+    },
+    {
+      "name": "Java",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+    },
+    {
+      "name": "Linux",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg"
+    },
+    {
+      "name": "HTML5",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+    },
+    {
+      "name": "CSS3",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+    },
+    {
+      "name": "JavaScript",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+    },
+    {
+      "name": "MySQL",
+      "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+    }
   ],
   "categories": [
     {
@@ -65,7 +92,7 @@
         {
           "icon": "account_balance_wallet",
           "title": "Finanzas Libre",
-          "description": "App móvil para la gestión integral de finanzas personales. Disponible para descargar (APK).",
+          "description": "a ver",
           "link_text": "Ver Proyecto",
           "link_url": "https://mentitos.github.io/finanzaslibre-pagina/",
           "image": "./assets/projects/finanzas-libre.png",
@@ -184,8 +211,14 @@
   "footer": {
     "copyright": "© 2026 Matías Gabriel Tello. Desarrollador Web y Móvil.",
     "links": [
-      { "name": "WhatsApp", "url": "https://wa.me/5491140655097?text=Hola%20Mat%C3%ADas!%20Me%20interesaron%20tus%20servicios%20de%20desarrollo." },
-      { "name": "GitHub", "url": "https://github.com/Mentitos" }
+      {
+        "name": "WhatsApp",
+        "url": "https://wa.me/5491140655097?text=Hola%20Mat%C3%ADas!%20Me%20interesaron%20tus%20servicios%20de%20desarrollo."
+      },
+      {
+        "name": "GitHub",
+        "url": "https://github.com/Mentitos"
+      }
     ]
   }
 }
