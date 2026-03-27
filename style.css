@@ -555,3 +555,49 @@ html.dark nav {
         transform: translate(0, 0);
     }
 }
+
+.description-container {
+    max-height: 4.2rem;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.description-expanded {
+    max-height: 1000px !important;
+}
+
+.btn-read-more {
+    background: transparent;
+    border: none;
+    color: #88adff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    opacity: 0.7;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.btn-read-more:hover {
+    opacity: 1;
+}
+
+.btn-read-more span {
+    font-size: 1.1rem;
+    transition: transform 0.3s;
+}
+
+.btn-read-more.active span {
+    transform: rotate(180deg);
+}
+
+html:not(.dark) .btn-read-more {
+    color: #4354c0;
+}

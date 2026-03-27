@@ -95,7 +95,7 @@
           "description": "a ver",
           "link_text": "Ver Proyecto",
           "link_url": "https://mentitos.github.io/finanzaslibre-pagina/",
-          "image": "./assets/projects/0ac56e1c.jpg",
+          "image": "./assets/projects/finanzas-libre.png",
           "tag": "Economía"
         },
         {
@@ -104,7 +104,7 @@
           "description": "Gestión de horarios de cursada. Nació de un proyecto en conjunto, exportado como Web y Android.",
           "link_text": "Ver Proyecto",
           "link_url": "https://mentitos.github.io/horarios-pagina/",
-          "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCLBJVgGcTylmIY-SL2Rs4xbzcSAZ9KYZ9wxtSeb_d9zze_8Ya20GZfYSd1JwZPqhrZCM8mIPxldGTeUxeMRPCJNQnrF9ZiR6e3RRwVhOMJLep7KYqTLzyWL8MW2qz0I8E8jOX2GcMBf3Kjb4rFyFjGjScsuOOXJVr7Hbl2PJomlXiaezqZJx79VTfQcrt0GHXx3SD8L2GdBjv1Lcw5Jc8m4shlR0JACzi1geiDQ7IMCdzfirYtCFwY9rYrFVqpApvo85IEBTZaqfED",
+          "image": "./assets/projects/horarios-ungs.png",
           "tag": "Educación"
         },
         {
@@ -113,6 +113,7 @@
           "description": "Página web interactiva original para calcular el porcentaje de avance en tu carrera.",
           "link_text": "Ver Proyecto",
           "link_url": "https://mentitos.github.io/materiasungsporcentaje/",
+          "image": "./assets/projects/Calculadora-Progreso.png",
           "tag": "Utilidad"
         }
       ]
@@ -126,6 +127,7 @@
           "description": "Página de portafolio con un cms no-code para que se pueda editar el contenido, multi idioma, varios temas.",
           "link_text": "Ver Proyecto",
           "link_url": "https://mentitos.github.io/MILO_Portafolio/",
+          "image": "./assets/projects/Milo-Portafolio.png",
           "tag": "Portafolio Artistico"
         },
         {
@@ -134,7 +136,7 @@
           "description": "Página web de Gabriela, una emprendedora dedicada a la venta de aceite CBD.",
           "link_text": "Visitar Web",
           "link_url": "https://mentitos.github.io/GabrielaS/",
-          "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBza9wzvOCtxX9UeF9Eg_5gbKAelVVWfuE6UMb1ffCMpIojDzW4pxgE-39lPzFGuNmO78R2OGY5G3uMcK-hH7xfIucsbz6QIshnALPmQKG2RNB3rIB2ahQBrIOWtSuHO83xqA3NvUVdxgtt5Mhk5XX9Fy-7WzM7A8zdsVuE6fY3NJPzV5xy0qhauti_HH8b4HolGPIoFbS4hZ2VhHOHDcpbsvwlMAqNZqqJ7k1cnmiZu12c5OmIv7D0yk4cbb99w2QQ_8k4-5b0QFED",
+          "image": "./assets/projects/GabrielaS.png",
           "tag": "Web Design"
         },
         {
@@ -143,6 +145,7 @@
           "description": "Página web para negocio de reparación de electrodomésticos.",
           "link_text": "Visitar Web",
           "link_url": "https://mentitos.github.io/Reparaciones.Francisconi/",
+          "image": "./assets/projects/Francisconi.png",
           "tag": "Servicios"
         },
         {
@@ -151,7 +154,7 @@
           "description": "Una mejor página para ver los horarios del tren Belgrano Norte \"El Rojito\".",
           "link_text": "Visitar Web",
           "link_url": "https://mentitos.github.io/Ferrovias/",
-          "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuATRbYEreolQC_IrvmQda3nq8CrLXc9CuC6aDad-hnfn_mks_9qvB0VST_cwbM9F_lnS9URv9TLW7tq78q0VqwzzZmy2b6hr5aMyd944dDbyQ-OUUXsQkvQU0kbviNJpjjE-5VELmav_-ISN-KaY3YvZgwcjj_u9ZZSV9SbAfQsRppSEGbra91vSQMznFljRQkAxJZjZln5EN8-99LgNyElku3uQQHRKVz9qHNuQpVCc-5A6QbEuhfE5DAhPvYp54MOs6W_3trSna7k",
+          "image": "./assets/projects/El-Rojito.png",
           "tag": "Logística"
         },
         {
@@ -160,6 +163,7 @@
           "description": "Página web demo para una distribuidora de harinas y demás panificados.",
           "link_text": "Visitar Web",
           "link_url": "https://mentitos.github.io/distrimas/",
+          "image": "./assets/projects/Distrimas.png",
           "tag": "E-commerce"
         },
         {
@@ -168,6 +172,7 @@
           "description": "Página para un corralón \"Los dos pibes\". Demo web.",
           "link_text": "Visitar Web",
           "link_url": "https://mentitos.github.io/los-dos-pibes/",
+          "image": "./assets/projects/Dos-Pibes.png",
           "tag": "Corralón"
         },
         {
@@ -176,6 +181,7 @@
           "description": "Un generador de códigos QR simple y rápido de usar en web.",
           "link_text": "Visitar Web",
           "link_url": "https://mentitos.github.io/QRgenerador/",
+          "image": "./assets/projects/QR-Generator.png",
           "tag": "Herramienta"
         }
       ]
@@ -189,6 +195,7 @@
           "description": "Un juego incremental (Dev Empire) en el que puedes armar tu propio imperio de software.",
           "link_text": "Jugar",
           "link_url": "https://mentitos.github.io/idle/",
+          "image": "./assets/projects/Idle-Dev.png",
           "tag": "Game"
         },
         {
@@ -197,6 +204,7 @@
           "description": "El clásico juego de la vida de Conway, pero corriendo directamente en tu consola/terminal.",
           "link_text": "Ver Repo",
           "link_url": "https://github.com/Mentitos/Game-Of-Life-In-Your-Terminal",
+          "image": "./assets/projects/Game-Of-Life.png",
           "tag": "Simulation"
         }
       ]

@@ -438,7 +438,17 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="flex justify-between items-start">
                             <div>
                                 <h3 class="text-2xl font-black mb-2 text-white group-hover:text-primary transition-colors">${item.title}</h3>
-                                <p class="text-on-surface-variant line-clamp-2 max-w-sm">${item.description}</p>
+                                <div class="description-wrapper">
+                                    <div class="description-container">
+                                        <p class="text-on-surface-variant max-w-sm">${item.description}</p>
+                                    </div>
+                                    ${item.description.length > 110 ? `
+                                        <button class="btn-read-more" onclick="window.toggleDescription(this, event)">
+                                            LEER MÁS 
+                                            <span class="material-symbols-outlined">expand_more</span>
+                                        </button>
+                                    ` : ''}
+                                </div>
                             </div>
                             <span class="text-[10px] font-bold tracking-widest uppercase text-primary/40 pt-2">${item.tag || 'Work'}</span>
                         </div>
@@ -498,4 +508,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     initDynamicContent();
+
+    window.toggleDescription = function (btn, event) {
+        event.preventDefault();
+        event.stopPropagation();
+        const container = btn.previousElementSibling;
+        const isExpanded = container.classList.toggle('description-expanded');
+        btn.classList.toggle('active');
+        const icon = btn.querySelector('.material-symbols-outlined');
+        
+        if (isExpanded) {
+            btn.innerHTML = `VER MENOS <span class="material-symbols-outlined">expand_less</span>`;
+        } else {
+            btn.innerHTML = `LEER MÁS <span class="material-symbols-outlined">expand_more</span>`;
+        }
+    };
 });
