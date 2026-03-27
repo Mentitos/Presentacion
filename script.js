@@ -376,7 +376,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         </a>
                     </div>
                 ` : '';
-                
+
                 return `
                     <div class="md:col-span-5 bg-surface-container-high p-10 rounded-xl border border-primary/10 group hover:border-primary/40 transition-colors flex flex-col">
                         <h4 class="text-primary text-xs font-bold tracking-widest uppercase mb-2">${item.category}</h4>
@@ -425,7 +425,7 @@ document.addEventListener('DOMContentLoaded', () => {
         container.innerHTML = categories.map((category, index) => {
             const itemsHtml = category.items.map((item, i) => {
                 let mediaHtml = item.image ? `<img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-80 group-hover:opacity-100">` : `<span class="material-symbols-outlined text-[100px] text-primary opacity-80 group-hover:scale-110 group-hover:opacity-100 transition-all duration-700">${item.icon}</span>`;
-                
+
                 return `
                     <a href="${item.link_url}" target="_blank" class="group ${i % 2 !== 0 ? 'md:mt-24' : ''} block">
                         <div class="relative aspect-[4/3] overflow-hidden rounded-3xl bg-surface-container-low mb-8 project-card-container">
@@ -450,7 +450,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                     ` : ''}
                                 </div>
                             </div>
-                            <span class="text-[10px] font-bold tracking-widest uppercase text-primary/40 pt-2">${item.tag || 'Work'}</span>
+                            <span class="project-tag">${item.tag || 'Work'}</span>
                         </div>
                     </a>
                 `;
@@ -516,7 +516,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const isExpanded = container.classList.toggle('description-expanded');
         btn.classList.toggle('active');
         const icon = btn.querySelector('.material-symbols-outlined');
-        
+
         if (isExpanded) {
             btn.innerHTML = `VER MENOS <span class="material-symbols-outlined">expand_less</span>`;
         } else {

@@ -92,7 +92,7 @@
         {
           "icon": "account_balance_wallet",
           "title": "Finanzas Libre",
-          "description": "a ver",
+          "description": "Aplicacion para gestionar tus finanzas personales. Con una distincion entre tu dinero fisico y digital.",
           "link_text": "Ver Proyecto",
           "link_url": "https://mentitos.github.io/finanzaslibre-pagina/",
           "image": "./assets/projects/finanzas-libre.png",

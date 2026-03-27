@@ -601,3 +601,16 @@ html.dark nav {
 html:not(.dark) .btn-read-more {
     color: #4354c0;
 }
+
+.project-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding-top: 0.5rem;
+    color: rgba(136, 173, 255, 0.6);
+}
+
+html:not(.dark) .project-tag {
+    color: #1d4ed8;
+}
