@@ -108,6 +108,15 @@
           "tag": "Educación"
         },
         {
+          "icon": "star",
+          "title": "Sudoku Libre",
+          "description": "Sudoku sin anuncios y de código libre, hecho para uso propio",
+          "link_text": "Ver Proyecto",
+          "link_url": "https://drive.google.com/drive/folders/1KBB8E9ZIct0FcSUjleVXqON6Jc3UcBqI?usp=sharing",
+          "image": "./assets/projects/93b7071d.jpg",
+          "tag": "Game"
+        },
+        {
           "icon": "show_chart",
           "title": "Calculadora Progreso",
           "description": "Página web interactiva original para calcular el porcentaje de avance en tu carrera.",
